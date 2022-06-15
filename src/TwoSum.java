@@ -6,10 +6,9 @@ import java.util.ArrayList;
  * Given an array of integers nums and an integer target, return indices of the two numbers such
  * that they add up to target.
  * 
- * You may assume that each input would have exactly one solution, and you may not use the same
- * element twice.
+ * Assume each input has exactly one solution, and do not use the same element twice. Return the
+ * answer as an int array of the two indices you found.
  * 
- * You can return the answer in any order.
  */
 class TwoSum {
     public static void main(String[] args) {
@@ -44,7 +43,27 @@ class TwoSum {
     }
 
     /**
-     * find 2 array elements that sum to target
+     * display result
+     * 
+     * @param nums
+     * @param target
+     */
+    private static void displayResult(int[] nums, int target) {
+        // fill result array
+        int[] result = twoSum(nums, target);
+
+        // format display
+        System.out.print("Input: ");
+        displayIntArray(nums);
+
+        System.out.printf(", Target: %d, Result: ", target);
+        displayIntArray(result);
+
+        System.out.println();
+    }
+
+    /**
+     * find the 2 array elements that sum to target
      * 
      * @param nums
      * @param target
@@ -52,11 +71,13 @@ class TwoSum {
      */
     public static int[] twoSum(int[] nums, int target) {
 
+        // return values
         int[] retIA = {0, 0};
 
+        // create ArrayList from data to access ArrayList methods
         ArrayList<Integer> al = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++)
-            al.add(nums[i]);
+        for (int i : nums)
+            al.add(i);
 
         int index = 0;
         for (var x : al) {
@@ -72,21 +93,6 @@ class TwoSum {
             index++;
         }
         return retIA;
-    }
-
-    /**
-     * display result
-     * 
-     * @param nums
-     * @param target
-     */
-    private static void displayResult(int[] nums, int target) {
-        int[] result = twoSum(nums, target);
-        System.out.print("Input: ");
-        displayIntArray(nums);
-        System.out.printf(", Target: %d, Result: ", target);
-        displayIntArray(result);
-        System.out.println();
     }
 
     /**
