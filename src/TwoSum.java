@@ -67,20 +67,19 @@ class TwoSum {
      * 
      * @param nums
      * @param target
-     * @return result int[] with 2 array indexes
+     * @return result int[index1, index2] or [0,0] if sum not found
      */
     public static int[] twoSum(int[] nums, int target) {
-
         // return values
         int[] retIA = {0, 0};
 
         // create ArrayList from data to access ArrayList methods
-        ArrayList<Integer> al = new ArrayList<>();
+        ArrayList<Integer> al = new ArrayList<>(nums.length);
         for (int i : nums)
             al.add(i);
 
         int index = 0;
-        for (var x : al) {
+        for (int x : al) {
             // find element k such that x + k == target
             int partnerIndex = al.lastIndexOf(target - x);
 
