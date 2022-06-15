@@ -13,36 +13,34 @@ import java.util.ArrayList;
  */
 class TwoSum {
     public static void main(String[] args) {
+        System.out.println();
         /*
          * Example1:
          * 
-         * Input: nums = [2,7,11,15], target = 9 Output: [0,1]
+         * Input: nums = [2,7,11,15], target = 9, Output: [0,1]
          * 
          * Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
          */
         int[] nums1 = {2, 7, 11, 15};
         int target1 = 9;
-        findAddend(nums1, target1);
-        System.out.println();
+        displayResult(nums1, target1);
         /*
          * Example 2:
          * 
-         * Input: nums = [3,2,4], target = 6 Output: [1,2]
+         * Input: nums = [3,2,4], target = 6, Output: [1,2]
          * 
          */
         int[] nums2 = {3, 2, 4};
         int target2 = 6;
-        findAddend(nums2, target2);
-        System.out.println();
+        displayResult(nums2, target2);
         /*
          * Example 3:
          * 
-         * Input: nums = [3,3], target = 6 Output: [0,1]
+         * Input: nums = [3,3], target = 6, Output: [0,1]
          */
         int[] nums3 = {3, 3};
         int target3 = 6;
-        findAddend(nums3, target3);
-        System.out.println();
+        displayResult(nums3, target3);
     }
 
     /**
@@ -63,11 +61,9 @@ class TwoSum {
         int index = 0;
         for (var x : al) {
             // find element k such that x + k == target
-            Integer partner = target - x;
+            int partnerIndex = al.lastIndexOf(target - x);
 
             // can only use an element once
-            int partnerIndex = al.lastIndexOf(partner);
-
             if (partnerIndex >= 0 && index != partnerIndex) {
                 retIA[0] = index;
                 retIA[1] = partnerIndex;
@@ -84,14 +80,13 @@ class TwoSum {
      * @param nums
      * @param target
      */
-    private static void findAddend(int[] nums, int target) {
+    private static void displayResult(int[] nums, int target) {
         int[] result = twoSum(nums, target);
         System.out.print("Input: ");
         displayIntArray(nums);
-        System.out.printf(" Target: %d Result: ", target);
+        System.out.printf(", Target: %d, Result: ", target);
         displayIntArray(result);
         System.out.println();
-
     }
 
     /**
